@@ -24,9 +24,11 @@ examples-rclpy-minimal-publisher==0.9.4
 examples-rclpy-minimal-service==0.9.4
 examples-rclpy-minimal-subscriber==0.9.4
 executing==2.2.1
+future==1.0.0
 hidapi==0.14.0.post4
 ipython==8.12.3
 ipywidgets==8.1.7
+iso8601==2.1.0
 jedi==0.19.2
 jupyterlab-widgets==3.0.15
 launch==0.10.10
@@ -46,6 +48,8 @@ prompt-toolkit==3.0.52
 ptyprocess==0.7.0
 pure-eval==0.2.3
 pygments==2.19.2
+pyserial==3.5
+PyYAML==6.0.3
 quality-of-service-demo-py==0.9.4
 ros2action==0.9.13
 ros2bag==0.3.11
