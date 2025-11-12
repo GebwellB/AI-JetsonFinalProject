@@ -20,11 +20,16 @@ Use this as Assessment template, filling in project-specific details based on yo
 - **Data Mining Goals:** Develop models for piece detection (~70% accuracy), pose estimation (handling rotations), and arm control (50% pick-place success).  
 - **Project Plan:** Timeline (4-6 weeks); resources (Jetson Nano, xArm1S, Roboflow). 
 - **Risks:**
-	- *Student input* 
-	- *Student input* 
+	- Imcompatible Python versions between components
+  - Hardware failures
+  - Detection model fails to detect objects clearly enough
+  - Once an object is detected, the arm failing to move to the position correctly
+  - Unhandled exceptions in code, causing the arm to not do anything
+  - Accuracy not meeting expectations, then causing issues in detecting objects
 
 
-- ***Student Input:*** [Describe how you  addressed the  business need 100-200 words]  
+- **Student Input**: [Describe how you addressed the business need 100-200 words]
+  - I addressed the business need by focusing on automating the puzzle solving process through integrating computer vision and robotic arm control to create an engaging educational demo. First, I defined clear goals, such as aiming for 70% accuracy in peice detection and aiming for at least 50% pickup rate in the robotic arm in moving and then picking up the puzzle piece. To support these goals, I selected suitable hardware, such as the Jetson Nano for processing and the xArm1S for manipulation. I then used Roboflow to augment images for training. Following augmentation, I continued to use Roboflow to train the model to detect the puzzle pieces.
 
    *Mapping to Units:** ICTAII501 PC 1.1-1.2 (confirm work brief via CRISP-DM business phase).*
 
@@ -36,14 +41,11 @@ Use this as Assessment template, filling in project-specific details based on yo
 - **Initial Data Collection:** 100-200 images of puzzle pieces/slots from top-down camera (via Jetson CSI), plus teleop videos (ROS2 bags) for joint states. Sources: Manual photos, Roboflow public datasets for augmentation.  
 - **Data Description:** Structure (images: RGB, 224x224; labels: 0-9 classes; joints: 6D floats). Volume: ~5k samples post-augmentation.  
 - **Data Exploration:** Use pandas/matplotlib for histograms (e.g., class balance: 10% per digit); identify issues (e.g., lighting bias via correlation plots).  
-- **Student Input:** [From Part 1: Summarise your Roboflow dataset stats, e.g., "50 images/class; explored via Hello AI tools, found 20% rotation variance." Include a sample plot code/output.]  
-  ```python
-  # Example exploration code (adapt from your work)
-  import matplotlib.pyplot as plt
-  # Load data and plot class distribution
-  plt.bar(classes, counts)
-  plt.show()
-  ```  
+- **Student Input:** [From Part 1: Summarise your Roboflow dataset stats, e.g., "50 images/class; explored via Hello AI tools, found 20% rotation variance." Include a sample plot code/output.] 
+  - For my Roboflow dataset, I took an original set of 30 images, fed them through an image augmentor to apply tilt, zoom, grainyness, grey scale, flipped horzontally and vertically and mirrored. This produced over 1300 images from my original 30. From that dataset, I trained the model in Roboflow using 25 test images, 45 valid and 1300 unseen data. From this set, I received an accuracy from the test images of between 30 and 90%, based on orientation and filtering etc. However, I did find during training that I overfed the model in some areas, causing data bias (it favoured the number 4 to be front and centre, and not to the side).
+
+  I did not use any code for this, as it was all done on Roboflow. Below is a screenshot of my trained model stats:
+  ![screenshot_of_trained_model_stats](/Screenshots/Roboflow_Trained_Model.PNG)
 *Mapping to Units ICTAII502 PC 1.1-1.6 (analyse requirements and data attributes using CRISP-DM data phase).*  
 
 ---
