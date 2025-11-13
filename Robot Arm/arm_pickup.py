@@ -6,9 +6,6 @@ from ultralytics import YOLO
 import time
 import xarm
 
-# ==============================
-# 1️⃣ Load models from 'Robot Arm' folder
-# ==============================
 arm = xarm.Controller('USB')
 
 servo1 = xarm.Servo(1)
@@ -60,10 +57,7 @@ transform = transforms.Compose([
 
 CONF_THRESHOLD = 0.8  # confidence threshold for YOLO
 
-# ==============================
-# 2️⃣ Open camera
-# ==============================
-cap = cv2.VideoCapture(0)  # Change to your camera ID
+cap = cv2.VideoCapture(0)
 
 def set_state(state_name):
     states = {
@@ -83,10 +77,6 @@ def set_state(state_name):
         print("Invalid state")
 
     return None
-
-# ==============================
-# 3️⃣ Main loop
-# ==============================
 
 set_state("home")
 time.sleep(2)
