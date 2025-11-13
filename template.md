@@ -56,7 +56,7 @@ Use this as Assessment template, filling in project-specific details based on yo
 - **Data Cleaning:** Remove duplicates/blurry images (OpenCV thresholding); handle missing labels via Roboflow auto-annotation.  
 - **Feature Engineering:** Augment for rotations (0-360° via Albumentations); normalize images (0-1 scale); engineer joint deltas from teleop recordings.  
 - **Final Dataset:** Train (70%): 3.5k samples; Val (20%): 1k; Test (10%): 500. Format: PyTorch DataLoader for Jetson training.  
-- **Student Input:** [Detail your prep from thumbs classifier/Roboflow, e.g., "Applied flips and brightness augments to address orientation issues." Include before/after metrics, e.g., variance reduction.]  
+- **Student Input:** Using Roboflow, I applied a variety of augmentations including vertical and horizontal flips, brightness adjustments of ±15%, mirroring, grain filtering, tilting, shearing, zooming, cropping, saturation, and exposure changes. These augmentations expanded the diversity of the dataset, helping the model generalise better by exposing it to different orientations, lighting conditions and distortions of the target object. Although I do not have before and after images or exact variance metrics (the Jetbot was wiped and reflashed several times due to hardware issues), these preprocessing steps contributed significantly to improving the robustness and accuracy of the model during training.
 - **Mapping to Units:** ICTAII502 PC 2.1-2.4 (set parameters, engineer features per CRISP-DM prep phase).  
 
 ---
