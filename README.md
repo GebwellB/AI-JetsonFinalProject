@@ -5,6 +5,11 @@ This is done using an objected detection model and a vision based pose estimated
 
 That's the goal of the project. My project, does not do that. Mine, detects the object, attempts to move to that location, but is unable to fully grasp the object and fails to pick it up.
 
+# Features:
+* AI-powered object detection of a specific puzzle piece (Number 4)
+* Pose estimation guiding a robot arm to the detected object
+* Modular design separating detection and arm control
+
 # Instructions:
 1. Clone this repo
 <pre>git clone https://github.com/GebwellB/AI-JetsonFinalProject</pre>
@@ -22,7 +27,7 @@ That's the goal of the project. My project, does not do that. Mine, detects the 
 # Software Requirements:
 * An IDE to run arm_pickup.py. This project used Visual Studio Code
 
-# Additional Notes:
+# Repository Structure:
 ### In this repo, you will find:
 1. **Project files** (/Image Training) - This contains both the Number 4 training folder and the Puzzle Numbers training (the image dataset), but I only trained on JUST the number 4. Everything in the Number 4 folder contains base images, my image augmentation and some results based on the number of images I fed into training.
 
@@ -30,4 +35,16 @@ That's the goal of the project. My project, does not do that. Mine, detects the 
 
 3. **Dataset** - The images I used to train my model are all in: /Image Training/Number 4/augmented_images. These were all generated from 2 base images, located here: /Image Training/Number 4/input_images_base. I tried Roboflow to get these augmentations, but my trail ran out and I couldn't be bothered going through the process of making a new gmail account and getting ANOTHER free trial, so instead I used an image generation python script (/Image Training/Number 4/image_generator.py). This file took the two images in the base folder and applied a bunch of augmentation to them. All of the robot arm position training images are located here: /Robot Arm/Arm Training/. This is a very heavily biases dataset, with me only rotating the image in the same spot, but it did end up working and the two models did allow the arm to move, just... not where I wanted it to go.
 
-4. **Supporting Evidence** - In the Screenshots folder, is a video of the robot arm attempting to pickup the number 4 after it was detected. The folder is mainly used to host the images in the template.md file. Given my trained model, it isn't very good, but you can see it isn't hard coded and does attempt to move roughly to where the piece is. Alas, I don't have any other videos of the data collection process or working inference demos. 
+4. **Supporting Evidence** - In the Screenshots folder, is a video of the robot arm attempting to pickup the number 4 after it was detected. The folder is mainly used to host the images in the template.md file. Given my trained model, it isn't very good, but you can see it isn't hard coded and does attempt to move roughly to where the piece is. Alas, I don't have any other videos of the data collection process or working inference demos.
+
+# Known Issues & Limitations:
+* The current system cannot reliably grasp and pick up the puzzle piece.
+* Pose estimation dataset is heavily biased due to limited augmentation (mostly image rotation).
+* Communication attempts between Jetbot and robot arm were explored but due to version issues, were abandoned.
+
+# Future Work:
+* Improve grasping reliability by enhancing pose estimation.
+* Expand and diversify training datasets for better generalisation.
+
+# License:
+This project is licensed under the MIT License.
