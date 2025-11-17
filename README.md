@@ -27,7 +27,7 @@ That's the goal of the project. My project, does not do that. Mine, detects the 
 # Software Requirements:
 * An IDE to run arm_pickup.py. This project used Visual Studio Code
 
-# Repository Structure:
+# Repository Structure / Notes:
 ### In this repo, you will find:
 1. **Project files** (/Image Training) - This contains both the Number 4 training folder and the Puzzle Numbers training (the image dataset), but I only trained on JUST the number 4. Everything in the Number 4 folder contains base images, my image augmentation and some results based on the number of images I fed into training.
 
@@ -46,5 +46,8 @@ That's the goal of the project. My project, does not do that. Mine, detects the 
 * Improve grasping reliability by enhancing pose estimation.
 * Expand and diversify training datasets for better generalisation.
 
+# Libraries:
+* For a full list of libraries used in this project, refer to the [requirements.txt](https://github.com/GebwellB/AI-JetsonFinalProject/blob/main/requirements.txt) file.
+
 # License:
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. Refer to the [LICENSE](https://github.com/GebwellB/AI-JetsonFinalProject/blob/main/LICENSE) file for further information.
